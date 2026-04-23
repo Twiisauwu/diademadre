@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Día Mamá 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --color: #e75480;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('fondo.png') no-repeat center/cover;
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 CENTRADO REAL */
+.app {
+  width: 100%;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 20px;
+  text-align: center;
+}
+
+/* TITULO MÁS VISIBLE */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8em;
+  color: var(--color);
+  margin-bottom: 25px;
+}
+
+/* TARJETA */
+.card {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
+  margin-bottom: 25px;
+}
+
+.card img {
+  width: 100%;
+  height: 240px; /* 🔥 un poco más grande */
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.nombre {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2em;
+  margin-top: 10px;
+  color: var(--color);
+}
+
+/* BOTONES */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu button {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #e75480, #ff8fab);
+  color: white;
+
+  font-size: 1.15em;
+  font-weight: 600;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* EFECTO TOUCH */
+.menu button:active {
+  transform: scale(0.96);
+}
+
+/* 💖 CORAZONES */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  animation: subir 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes subir {
+  from {transform: translateY(0);}
+  to {transform: translateY(-110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<h1>¡Feliz día Mamá! 💖</h1>
+
+<div class="card">
+  <img src="mama.jpg">
+  <div class="nombre">Cristobalina Contreras</div>
+</div>
+
+<div class="menu">
+  <button onclick="location.href='descripcion.html'">💖 Descripción de Mamá</button>
+  <button onclick="location.href='momentos.html'">📸 Mejores Momentos</button>
+  <button onclick="location.href='carta.html'">💌 Carta</button>
+  <button onclick="location.href='sorpresa.html'">🎁 Sorpresa</button>
+</div>
+
+</div>
+
+<script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+</body>
+</html>
