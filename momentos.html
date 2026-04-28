@@ -16,33 +16,44 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: url('fondo.png') no-repeat center/cover;
-  height: 100vh;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
 }
 
+/* overlay elegante */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
+/* CONTENEDOR */
 .app {
-  max-width: 1100px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
   text-align: center;
 }
 
+/* TITULO */
 h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 3.5em;
   color: var(--color);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
+/* CONTENIDO */
 .contenido {
   display: flex;
-  gap: 60px;
   align-items: center;
+  justify-content: center;
+  gap: 80px;
 }
 
-/* MARCO (YA PERFECTO) */
+/* MARCO */
 .marco {
   width: 500px;
   height: 320px;
@@ -53,10 +64,10 @@ h1 {
   box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
-/* 🔥 TEXTO FIJO */
+/* TEXTO FIJO */
 .descripcion {
   width: 350px;
-  height: 180px; /* 🔥 evita movimiento */
+  height: 180px;
   background: rgba(255,255,255,0.9);
   padding: 25px;
   border-radius: 25px;
@@ -69,7 +80,7 @@ h1 {
   overflow: hidden;
 }
 
-/* 🎬 ANIMACIÓN */
+/* ANIMACIÓN */
 .fade {
   opacity: 0;
   transition: opacity 0.2s ease;
@@ -80,7 +91,6 @@ h1 {
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 15px;
 }
 
@@ -99,10 +109,16 @@ h1 {
   transform: scale(1.1);
 }
 
-/* RESPONSIVE */
+/* 📱 MOBILE */
 @media (max-width: 768px) {
+
   .contenido {
     flex-direction: column;
+    gap: 30px;
+  }
+
+  h1 {
+    font-size: 2.5em;
   }
 
   .marco {
@@ -111,9 +127,10 @@ h1 {
   }
 
   .descripcion {
-    text-align: center;
+    width: 90%;
     height: 140px;
   }
+
 }
 </style>
 </head>
@@ -126,16 +143,17 @@ h1 {
 
 <div class="contenido">
 
-  <div>
-    <div id="marco" class="marco"></div>
-  </div>
+  <!-- IMAGEN -->
+  <div class="marco" id="marco"></div>
 
+  <!-- TEXTO -->
   <div class="descripcion" id="texto">
     De bebé en tus brazos 💖
   </div>
 
 </div>
 
+<!-- BOTONES -->
 <div class="botones">
   <button onclick="anterior()">⬅</button>
   <button onclick="siguiente()">➡</button>
