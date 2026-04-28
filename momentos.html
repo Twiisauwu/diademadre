@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -203,4 +204,211 @@ actualizar();
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mejores Momentos 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --color: #e75480;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('fondo.png') no-repeat center/cover;
+  min-height: 100vh;
+}
+
+/* overlay elegante */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
+/* CONTENEDOR */
+.app {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* TITULO */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5em;
+  color: var(--color);
+  margin-bottom: 40px;
+}
+
+/* CONTENIDO */
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+/* MARCO */
+.marco {
+  width: 500px;
+  height: 320px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* TEXTO FIJO */
+.descripcion {
+  width: 350px;
+  height: 180px;
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ANIMACIÓN */
+.fade {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* BOTONES */
+.botones {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.botones button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: var(--color);
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+.botones button:hover {
+  transform: scale(1.1);
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .contenido {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .marco {
+    width: 90%;
+    height: 220px;
+  }
+
+  .descripcion {
+    width: 90%;
+    height: 140px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<h1>Mejores Momentos 📸</h1>
+
+<div class="contenido">
+
+  <!-- IMAGEN -->
+  <div class="marco" id="marco"></div>
+
+  <!-- TEXTO -->
+  <div class="descripcion" id="texto">
+    De bebé en tus brazos 💖
+  </div>
+
+</div>
+
+<!-- BOTONES -->
+<div class="botones">
+  <button onclick="anterior()">⬅</button>
+  <button onclick="siguiente()">➡</button>
+
+  <a href="index.html">
+    <button>⬅ Volver</button>
+  </a>
+</div>
+
+</div>
+
+<script>
+const momentos = [
+  { img: "foto1.png", texto: "De bebé en tus brazos 💖" },
+  { img: "foto2.png", texto: "Ese día lleno de risas 😊" },
+  { img: "foto3.png", texto: "Un recuerdo hermoso 💕" },
+  { img: "foto4.png", texto: "Otro momento lindo 💗" },
+  { img: "foto5.png", texto: "Siempre juntos 💞" }
+];
+
+let index = 0;
+
+const marco = document.getElementById("marco");
+const texto = document.getElementById("texto");
+
+function actualizar() {
+  texto.classList.add("fade");
+
+  setTimeout(() => {
+    marco.style.backgroundImage = `url('${momentos[index].img}')`;
+    texto.innerText = momentos[index].texto;
+    texto.classList.remove("fade");
+  }, 150);
+}
+
+function siguiente() {
+  index = (index + 1) % momentos.length;
+  actualizar();
+}
+
+function anterior() {
+  index = (index - 1 + momentos.length) % momentos.length;
+  actualizar();
+}
+
+actualizar();
+</script>
+
+</body>
+>>>>>>> 09c96f5d210ec6314b61dfb587d111f746c5e758
 </html>
